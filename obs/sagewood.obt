@@ -1,0 +1,256 @@
+@OBSThemeMeta {
+    name: 'Sagewood';
+    id: 'com.obsproject.Sagewood';
+    extends: 'com.obsproject.Yami';
+    author: 'Custom';
+    dark: 'true';
+}
+
+@OBSThemeVars {
+    /* Color Palette Variables */
+    --ml_canvas:     #2d3833;
+    --ml_crust:      #222a26;
+    --ml_highlight:  #3b4a43;
+    --ml_text:       #d2ded7;
+    --ml_muted:      #677a70;
+
+    --ml_red:        #d99c82;
+    --ml_green:      #a8b59b;
+    --ml_yellow:     #d6caa3;
+    --ml_blue:       #8da7b3;
+    --ml_magenta:    #caacc2;
+    --ml_cyan:       #9bb5b1;
+
+    /* Map palette variables onto Yami semantic variables */
+
+    --bg_window:  var(--ml_canvas);
+    --bg_base:    var(--ml_canvas);
+    --bg_preview: var(--ml_crust);
+
+    --primary:         var(--ml_blue);
+    --primary_light:   var(--ml_cyan);
+    --primary_lighter: var(--ml_cyan);
+    --primary_dark:    var(--ml_blue);
+    --primary_darker:  var(--ml_highlight);
+
+    --warning: var(--ml_yellow);
+    --danger:  var(--ml_red);
+
+    --text:          var(--ml_text);
+    --text_light:    var(--ml_text);
+    --text_muted:    var(--ml_muted);
+    --text_disabled: var(--ml_muted);
+    --text_inactive: var(--ml_muted);
+
+    --scrollbar_bg:     var(--ml_crust);
+    --scrollbar_handle: var(--ml_highlight);
+    --scrollbar_hover:  var(--ml_blue);
+    --scrollbar_down:   var(--ml_cyan);
+    --scrollbar_border: var(--ml_highlight);
+
+    --border_color: var(--ml_highlight);
+
+    --input_bg:       var(--ml_crust);
+    --input_bg_hover: var(--ml_highlight);
+    --input_bg_focus: var(--ml_highlight);
+
+    --input_border:       var(--ml_highlight);
+    --input_border_hover: var(--ml_muted);
+    --input_border_focus: var(--ml_blue);
+
+    --list_item_bg_hover: var(--ml_highlight);
+
+    --button_bg:          var(--ml_highlight);
+    --button_bg_hover:    var(--ml_blue);
+    --button_bg_down:     var(--ml_cyan);
+    --button_bg_disabled: var(--ml_crust);
+
+    --button_border:       var(--ml_highlight);
+    --button_border_hover: var(--ml_cyan);
+    --button_border_focus: var(--ml_cyan);
+
+    --tab_bg:          var(--ml_crust);
+    --tab_bg_hover:    var(--ml_highlight);
+    --tab_bg_down:     var(--ml_canvas);
+    --tab_bg_disabled: var(--ml_crust);
+
+    --tab_border:          var(--ml_muted);
+    --tab_border_hover:    var(--ml_muted);
+    --tab_border_focus:    var(--ml_cyan);
+    --tab_border_selected: var(--ml_blue);
+
+    --separator_hover: var(--ml_text);
+
+    --highlight_color: var(--ml_cyan);
+
+    --palette_window:     var(--ml_canvas);
+    --palette_windowText: var(--ml_text);
+
+    --palette_base:          var(--ml_canvas);
+    --palette_alternateBase: var(--ml_crust);
+
+    --palette_text:       var(--ml_text);
+    --palette_brightText: var(--ml_text);
+
+    --palette_button:     var(--ml_highlight);
+    --palette_buttonText: var(--ml_text);
+
+    --palette_light:  var(--ml_highlight);
+    --palette_mid:    var(--ml_canvas);
+    --palette_dark:   var(--ml_crust);
+    --palette_shadow: var(--ml_crust);
+
+    --palette_highlight:     var(--ml_highlight);
+    --palette_highlightedText: var(--ml_text);
+
+    --palette_link:        var(--ml_cyan);
+    --palette_linkVisited: var(--ml_magenta);
+
+    --palette_text_active:   var(--ml_text);
+    --palette_text_disabled: var(--ml_muted);
+    --palette_text_inactive: var(--ml_muted);
+}
+
+/*
+ * QSS overrides beyond what variable remapping covers.
+ */
+
+QWidget {
+    selection-background-color: var(--ml_highlight);
+}
+
+/* Control buttons active states */
+#streamButton:!hover:!pressed.state-active,
+#recordButton:!hover:!pressed.state-active,
+#pauseRecordButton:!hover:!pressed.state-active,
+#replayBufferButton:!hover:!pressed.state-active,
+#virtualCamButton:!hover:!pressed.state-active,
+#modeSwitch:!hover:!pressed.state-active,
+#broadcastButton:!hover:!pressed.state-active {
+    background: var(--ml_blue);
+    color: var(--ml_crust);
+}
+
+#streamButton:hover:!pressed.state-active,
+#recordButton:hover:!pressed.state-active,
+#pauseRecordButton:hover:!pressed.state-active,
+#replayBufferButton:!hover:!pressed.state-active,
+#virtualCamButton:!hover:!pressed.state-active,
+#modeSwitch:hover:!pressed.state-active,
+#broadcastButton:hover:!pressed.state-active {
+    background: var(--ml_cyan);
+    color: var(--ml_crust);
+}
+
+QPushButton:checked,
+QPushButton:checked:hover,
+QPushButton:checked:focus {
+    color: var(--ml_crust);
+}
+
+/* List/tree selection overrides */
+QMenu::item:selected,
+QMenu > QWidget:selected,
+QListView::item:selected,
+QListWidget::item:selected,
+SourceTree::item:selected,
+SourceTreeItem:selected {
+    background-color: var(--ml_highlight);
+    color: var(--ml_text);
+    border-color: var(--ml_muted);
+}
+
+QMenu::item:selected:hover,
+QListView::item:selected:hover,
+QListWidget::item:selected:hover,
+SourceTree::item:selected:hover,
+SourceTreeItem:selected:hover {
+    background-color: var(--ml_blue);
+    color: var(--ml_crust);
+}
+
+QMenuBar::item:selected {
+    background: var(--ml_highlight);
+    color: var(--ml_text);
+}
+
+/* VolumeMeter track colors */
+VolumeMeter {
+    qproperty-backgroundNominalColor: var(--ml_green);
+    qproperty-backgroundWarningColor: var(--ml_yellow);
+    qproperty-backgroundErrorColor:   var(--ml_red);
+
+    qproperty-foregroundNominalColor: var(--ml_green);
+    qproperty-foregroundWarningColor: var(--ml_yellow);
+    qproperty-foregroundErrorColor:   var(--ml_red);
+
+    qproperty-backgroundNominalColorDisabled: var(--ml_crust);
+    qproperty-backgroundWarningColorDisabled: var(--ml_muted);
+    qproperty-backgroundErrorColorDisabled:   var(--ml_text);
+    qproperty-foregroundNominalColorDisabled: var(--ml_highlight);
+    qproperty-foregroundWarningColorDisabled: var(--ml_muted);
+    qproperty-foregroundErrorColorDisabled:   var(--ml_text);
+
+    qproperty-magnitudeColor: var(--ml_crust);
+    qproperty-majorTickColor: var(--ml_text);
+    qproperty-minorTickColor: var(--ml_muted);
+    qproperty-peakDecayRate:  23.4;
+}
+
+/* Mixer category badges */
+VolumeControl .mixer-category {
+    background: var(--ml_highlight);
+    color: var(--ml_magenta);
+}
+
+VolumeControl.volume-pinned .mixer-category {
+    background: var(--ml_blue);
+    color: var(--ml_crust);
+}
+
+VolumeControl.volume-hidden .mixer-category {
+    background: var(--ml_crust);
+    color: var(--ml_magenta);
+}
+
+VolumeControl.volume-unassigned .mixer-category {
+    background: var(--ml_crust);
+    color: var(--ml_yellow);
+}
+
+VolumeControl.volume-inactive .mixer-category {
+    background: var(--ml_crust);
+    color: var(--ml_muted);
+}
+
+VolumeControl.volume-preview .mixer-category {
+    background: var(--ml_crust);
+    color: var(--ml_green);
+}
+
+/* Sliders */
+QSlider::sub-page:horizontal,
+QSlider::add-page:vertical {
+    background-color: var(--ml_blue);
+}
+
+/* T-Bar */
+.slider-tbar::sub-page:horizontal {
+    background: var(--ml_blue);
+}
+
+/* Preview scaling overlay */
+#previewXContainer,
+#previewScalingMode {
+    border: 1px solid var(--ml_canvas);
+}
+
+#previewScalingMode:hover,
+#previewScalingMode:focus {
+    border-color: var(--ml_canvas);
+}
+
+#previewXScrollBar,
+#previewYScrollBar {
+    border: 1px solid var(--ml_canvas);
+}
